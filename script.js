@@ -3,11 +3,11 @@ const primaryNav = document.querySelector(".primary-nav");
 
 if (menuToggle && primaryNav) {
   menuToggle.addEventListener("click", () => {
-    const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
-    menuToggle.setAttribute("aria-expanded", String(!isOpen));
-    menuToggle.setAttribute("aria-label", isOpen ? "เปิดเมนู" : "ปิดเมนู");
-    primaryNav.classList.toggle("is-open", !isOpen);
-    document.body.classList.toggle("menu-open", !isOpen);
+    const open = menuToggle.getAttribute("aria-expanded") !== "true";
+    menuToggle.setAttribute("aria-expanded", String(open));
+    menuToggle.setAttribute("aria-label", open ? "ปิดเมนู" : "เปิดเมนู");
+    primaryNav.classList.toggle("is-open", open);
+    document.body.classList.toggle("menu-open", open);
   });
 
   primaryNav.querySelectorAll("a").forEach((link) => {
@@ -20,52 +20,57 @@ if (menuToggle && primaryNav) {
   });
 }
 
-const filterButtons = [...document.querySelectorAll(".filter-button")];
-const ideaCards = [...document.querySelectorAll(".idea-card")];
+const track = document.querySelector(".project-track");
+const projectCards = [...document.querySelectorAll(".project-card")];
+const slideButtons = [...document.querySelectorAll("[data-slide]")];
+let slideIndex = 0;
 
-filterButtons.forEach((button) => {
+function slideStep() {
+  if (!track || !projectCards.length) return 0;
+  const cardWidth = projectCards[0].getBoundingClientRect().width;
+  const gap = Number.parseFloat(getComputedStyle(track).columnGap) || 0;
+  return cardWidth + gap;
+}
+
+function visibleProjectCount() {
+  if (window.innerWidth <= 680) return 1;
+  if (window.innerWidth <= 980) return 2;
+  return 3;
+}
+
+function updateSlider() {
+  if (!track) return;
+  const lastIndex = Math.max(0, projectCards.length - visibleProjectCount());
+  slideIndex = Math.min(Math.max(slideIndex, 0), lastIndex);
+  track.style.transform = `translateX(${-slideIndex * slideStep()}px)`;
+  slideButtons.forEach((button) => {
+    button.disabled = button.dataset.slide === "prev" ? slideIndex === 0 : slideIndex === lastIndex;
+  });
+}
+
+slideButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    const filter = button.dataset.filter;
-    filterButtons.forEach((item) => {
-      const active = item === button;
-      item.classList.toggle("is-active", active);
-      item.setAttribute("aria-pressed", String(active));
-    });
-    ideaCards.forEach((card) => {
-      card.hidden = filter !== "all" && card.dataset.category !== filter;
-    });
+    slideIndex += button.dataset.slide === "next" ? 1 : -1;
+    updateSlider();
   });
 });
+window.addEventListener("resize", updateSlider);
+updateSlider();
 
 const ideaForm = document.querySelector("#idea-form");
 const formStatus = document.querySelector("#form-status");
-const toast = document.querySelector("#toast");
-let toastTimer;
 
-function showToast(message) {
-  toast.textContent = message;
-  toast.classList.add("show");
-  window.clearTimeout(toastTimer);
-  toastTimer = window.setTimeout(() => toast.classList.remove("show"), 4200);
-}
-
-if (ideaForm) {
+if (ideaForm && formStatus) {
   ideaForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    const formData = new FormData(ideaForm);
-    const message = String(formData.get("message") || "").trim();
+    const message = String(new FormData(ideaForm).get("message") || "").trim();
     if (!message) return;
 
-    const savedIdeas = JSON.parse(localStorage.getItem("studentCouncilIdeas") || "[]");
-    savedIdeas.push({
-      category: String(formData.get("category") || "ทั่วไป"),
-      message,
-      createdAt: new Date().toISOString(),
-    });
-    localStorage.setItem("studentCouncilIdeas", JSON.stringify(savedIdeas));
+    const ideas = JSON.parse(localStorage.getItem("studentCouncilIdeas") || "[]");
+    ideas.push({ message, createdAt: new Date().toISOString() });
+    localStorage.setItem("studentCouncilIdeas", JSON.stringify(ideas));
     ideaForm.reset();
     formStatus.textContent = "บันทึกไอเดียไว้ในเบราว์เซอร์เครื่องนี้แล้ว ขอบคุณที่ช่วยคิดนะ!";
-    showToast("ไอเดียถูกบันทึกไว้ในเครื่องนี้แล้ว ยังไม่ได้ส่งให้โรงเรียน");
   });
 }
 
