@@ -1,47 +1,36 @@
 <!doctype html>
 <html lang="th">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#eaf6ff">
-  <meta name="description" content="เว็บไซต์สภานักเรียนโรงเรียนสุรวิทยาคาร จังหวัดสุรินทร์ พื้นที่รับฟังความคิดและร่วมสร้างการเปลี่ยนแปลง">
-  <title>สภานักเรียนสุรวิทยาคาร · สุรินทร์ | Surawittayakarn Student Council</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#eaf6ff">
+  <meta name="description" content="หน้าแรกสภานักเรียนโรงเรียนสุรวิทยาคาร จังหวัดสุรินทร์ เลือกดูข้อมูล ทีมงาน กิจกรรม และข่าวสารได้จากเมนูเว็บไซต์">
+  <title>สภานักเรียนสุรวิทยาคาร · สุรินทร์</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css">
 </head>
-<body>
-  <div class="topline"><span data-i18n="topline">STUDENT VOICE · SHARED IDEAS · REAL ACTION</span><a href="#contact" data-i18n="toplink">ส่งเสียงของคุณ <span aria-hidden="true">↗</span></a></div>
+<body>  <div class="topline"><span>STUDENT VOICE · SHARED IDEAS · REAL ACTION</span><span>โรงเรียนสุรวิทยาคาร · จังหวัดสุรินทร์</span></div>
   <header class="site-header">
-    <a class="brand" href="#home" aria-label="Surawittayakarn Student Council home">
-      <span class="brand-mark" aria-hidden="true"><span>SC</span><i></i></span>
-      <span class="brand-copy"><strong>SURAWITTAYAKARN</strong><small data-i18n="brandSub">STUDENT COUNCIL</small></span>
-    </a>
-    <button id="menuToggle" class="menu-toggle" aria-label="เปิดเมนู" aria-expanded="false"><span></span><span></span></button>
-    <nav id="siteNav" class="site-nav" aria-label="Main navigation">
-      <a href="#about" data-i18n="navAbout">รู้จักเรา</a>
-      <a href="#team" data-i18n="navTeam">ทีมสภา</a>
-      <a href="#work" data-i18n="navWork">โครงการ</a>
-      <a href="#news" data-i18n="navNews">ข่าวสาร</a>
-      <a href="#contact" data-i18n="navContact">ติดต่อ</a>
-    </nav>
+    <a class="brand" href="index.html" aria-label="หน้าแรกสภานักเรียนสุรวิทยาคาร"><span class="brand-mark" aria-hidden="true"><span>SC</span><i></i></span><span class="brand-copy"><strong>SURAWITTAYAKARN</strong><small data-i18n="brandSub">STUDENT COUNCIL · SURIN</small></span></a>
     <div class="header-actions">
-      <button id="languageToggle" class="language-toggle" aria-label="Switch language">EN</button>
+      <button id="menuToggle" class="menu-toggle" type="button" aria-label="เปิดเมนูเว็บไซต์" aria-expanded="false" aria-controls="siteNav"><span data-i18n="menuLabel">เมนูเว็บไซต์</span><i aria-hidden="true">⌄</i></button>
+      <button id="languageToggle" class="language-toggle" type="button" aria-label="Switch language">EN</button>
     </div>
+    <nav id="siteNav" class="site-nav" aria-label="เมนูเว็บไซต์" hidden>
+      <a href="about.html"><span class="nav-number">01</span><span class="nav-copy"><strong data-i18n="menuAbout">รู้จักสภานักเรียน</strong><small>ABOUT THE COUNCIL</small></span><span class="nav-arrow">↗</span></a>
+      <a href="team.html"><span class="nav-number">02</span><span class="nav-copy"><strong data-i18n="menuTeam">ทีมสภานักเรียน</strong><small>STUDENT COUNCIL TEAM</small></span><span class="nav-arrow">↗</span></a>
+      <a href="activities.html"><span class="nav-number">03</span><span class="nav-copy"><strong data-i18n="menuActivities">กิจกรรมและโครงการ</strong><small>ACTIVITIES & PROJECTS</small></span><span class="nav-arrow">↗</span></a>
+      <a href="news.html"><span class="nav-number">04</span><span class="nav-copy"><strong data-i18n="menuNews">ข่าวสาร</strong><small>NEWS & UPDATES</small></span><span class="nav-arrow">↗</span></a>
+      <a href="gallery.html"><span class="nav-number">05</span><span class="nav-copy"><strong data-i18n="menuGallery">ภาพกิจกรรม</strong><small>PHOTO GALLERY</small></span><span class="nav-arrow">↗</span></a>
+      <a href="contact.html"><span class="nav-number">06</span><span class="nav-copy"><strong data-i18n="menuContact">ติดต่อและส่งความคิดเห็น</strong><small>CONTACT & FEEDBACK</small></span><span class="nav-arrow">↗</span></a>
+    </nav>
   </header>
-
   <main>
-    <section id="home" class="hero section-wrap">
+<section id="home" class="hero section-wrap home-hero">
       <div class="hero-copy">
         <p class="eyebrow"><span class="eyebrow-dot"></span><span data-i18n="heroEyebrow">สภานักเรียน · โรงเรียนสุรวิทยาคาร · สุรินทร์</span></p>
         <h1 data-i18n="heroTitle">เสียงของเรา<br>สร้างโรงเรียนที่<span class="blue-text">ดีกว่า</span></h1>
         <p class="hero-lede" data-i18n="heroLead">พื้นที่ของนักเรียนทุกคน เพื่อรับฟังความคิด เชื่อมโยงผู้คน และเปลี่ยนข้อเสนอให้เป็นการลงมือทำที่จับต้องได้</p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="#work"><span data-i18n="exploreWork">สำรวจโครงการ</span><span aria-hidden="true">↗</span></a>
-          <a class="text-link" href="#about"><span data-i18n="learnMore">รู้จักสภานักเรียน</span><span aria-hidden="true">↓</span></a>
-        </div>
+        <div class="hero-menu-hint"><span class="mini-mark">↗</span><span data-i18n="homeMenuHint">เลือกหัวข้อที่ต้องการได้จากปุ่ม “เมนูเว็บไซต์” ด้านบน</span></div>
         <div class="hero-footnote"><span class="mini-mark">SC</span><span data-i18n="heroFootnote">รับฟังอย่างตั้งใจ · ทำงานอย่างโปร่งใส · เติบโตไปด้วยกัน</span></div>
       </div>
       <div class="hero-visual" aria-label="Student council illustration">
@@ -53,89 +42,11 @@
         <span class="visual-caption">VOICE / IDEAS / ACTION</span>
       </div>
     </section>
-
-    <section class="principles-band" aria-label="Our principles">
-      <div><span class="principle-index">01</span><strong data-i18n="principleOne">ฟังทุกเสียง</strong><small data-i18n="principleOneSub">รับฟังด้วยความเข้าใจ</small></div>
-      <div><span class="principle-index">02</span><strong data-i18n="principleTwo">คิดร่วมกัน</strong><small data-i18n="principleTwoSub">เปิดพื้นที่ให้ทุกคนมีส่วนร่วม</small></div>
-      <div><span class="principle-index">03</span><strong data-i18n="principleThree">ทำให้เกิดขึ้น</strong><small data-i18n="principleThreeSub">สื่อสารความคืบหน้าอย่างโปร่งใส</small></div>
-    </section>
-
-    <section id="about" class="about-section section-wrap">
-      <div class="section-kicker"><span>01 / ABOUT</span><span data-i18n="aboutKicker">รู้จักสภานักเรียน</span></div>
-      <div class="about-layout">
-        <div><h2 data-i18n="aboutTitle">โรงเรียนที่ดีขึ้น<br>เริ่มจาก<span class="blue-text">การร่วมมือ</span></h2></div>
-        <div class="about-copy"><p data-i18n="aboutText">สภานักเรียนเป็นตัวแทนและพื้นที่กลางของนักเรียน เราประสานความคิดเห็นกับโรงเรียน สนับสนุนกิจกรรม และผลักดันแนวคิดที่ช่วยให้ชีวิตในโรงเรียนดีขึ้นสำหรับทุกคน</p><a class="underlined-link" href="#contact"><span data-i18n="shareIdea">แบ่งปันความคิดกับเรา</span><span aria-hidden="true">↗</span></a></div>
-      </div>
-      <div class="value-grid">
-        <article class="value-card"><span class="value-icon">◎</span><h3 data-i18n="valueListen">รับฟัง</h3><p data-i18n="valueListenText">เปิดใจต่อทุกมุมมอง และนำเสียงของนักเรียนไปสื่อสารอย่างสร้างสรรค์</p><span class="value-number">A / 01</span></article>
-        <article class="value-card"><span class="value-icon">⌘</span><h3 data-i18n="valueConnect">เชื่อมโยง</h3><p data-i18n="valueConnectText">ทำงานร่วมกันระหว่างนักเรียน คณะครู และชุมชนโรงเรียน</p><span class="value-number">B / 02</span></article>
-        <article class="value-card"><span class="value-icon">↗</span><h3 data-i18n="valueAct">ลงมือทำ</h3><p data-i18n="valueActText">เปลี่ยนไอเดียเป็นกิจกรรมและโครงการ พร้อมอัปเดตผลการดำเนินงาน</p><span class="value-number">C / 03</span></article>
-      </div>
-      <aside class="school-identity" aria-label="อัตลักษณ์โรงเรียนสุรวิทยาคาร">
-        <div class="identity-heading">
-          <div class="identity-kicker"><span>SWK / SURIN</span><span data-i18n="schoolIdentityKicker">อัตลักษณ์โรงเรียน</span></div>
-          <h3 data-i18n="schoolIdentityTitle">ความประพฤตินำหน้า<br>วิชาตามหลัง</h3>
-          <p data-i18n="schoolIdentityText">คติพจน์ของโรงเรียนที่ชวนให้เติบโตทั้งความประพฤติและการเรียนรู้</p>
-          <a class="identity-school-link" href="https://sura.ac.th/" target="_blank" rel="noopener noreferrer"><span data-i18n="schoolWebsite">เว็บไซต์โรงเรียนสุรวิทยาคาร</span><span aria-hidden="true">↗</span></a>
-        </div>
-        <div class="identity-details">
-          <div class="identity-philosophy"><span class="identity-label" data-i18n="schoolPhilosophyLabel">ปรัชญาการศึกษา</span><p data-i18n="schoolPhilosophy">นตฺถิ ปญฺญาสมา อาภา<br>แสงสว่างเสมอด้วยปัญญาไม่มี</p></div>
-          <div class="identity-rings" aria-label="ความหมายของวงแหวนโรงเรียนสามวง">
-            <span class="identity-label" data-i18n="ringLabel">ความหมายของวงแหวน 3 วง</span>
-            <div class="ring-list">
-              <div class="ring-item ring-academic"><i aria-hidden="true"></i><span data-i18n="ringAcademic">พุทธิศึกษา</span></div>
-              <div class="ring-item ring-ethics"><i aria-hidden="true"></i><span data-i18n="ringEthics">จริยศึกษา</span></div>
-              <div class="ring-item ring-physical"><i aria-hidden="true"></i><span data-i18n="ringPhysical">พลศึกษา</span></div>
-            </div>
-          </div>
-          <div class="identity-colors"><span class="identity-label" data-i18n="schoolColorsLabel">สีประจำโรงเรียน</span><div class="color-pair"><i aria-hidden="true"></i><i aria-hidden="true"></i><span data-i18n="schoolColorsText">เขียว · เหลือง</span></div><small data-i18n="schoolColorsNote">เติมสีโรงเรียนคู่กับโทนฟ้าหลักของเว็บไซต์</small></div>
-        </div>
-        <p class="identity-note" data-i18n="identityNote">สัญลักษณ์วงแหวนในหน้านี้เป็นภาพประกอบความหมาย ไม่ใช่ตราโรงเรียนฉบับทางการ</p>
-      </aside>
-    </section>
-
-    <section id="team" class="team-section">
-      <div class="section-wrap">
-        <div class="section-heading"><div><div class="section-kicker"><span>02 / PEOPLE</span><span data-i18n="teamKicker">ผู้แทนนักเรียน</span></div><h2 data-i18n="teamTitle">ทีมที่พร้อม<br><span class="blue-text">ทำงานเพื่อทุกคน</span></h2></div><p data-i18n="teamIntro">พบกับคณะกรรมการสภานักเรียนและทีมงานแต่ละฝ่าย เราทำงานร่วมกันเพื่อให้ความคิดของนักเรียนเดินหน้าได้จริง</p></div>
-        <div id="committeeGrid" class="committee-grid"></div>
-        <div class="section-tail"><span data-i18n="teamTail">โครงสร้างคณะกรรมการ</span><span>TEAM / 2026</span></div>
-      </div>
-    </section>
-
-    <section id="work" class="work-section section-wrap">
-      <div class="section-heading"><div><div class="section-kicker"><span>03 / WHAT WE DO</span><span data-i18n="workKicker">โครงการและกิจกรรม</span></div><h2 data-i18n="workTitle">ไอเดียที่กำลัง<br><span class="blue-text">เกิดขึ้นจริง</span></h2></div><p data-i18n="workIntro">ติดตามโครงการ กิจกรรม และประเด็นที่สภานักเรียนกำลังผลักดัน</p></div>
-      <div id="projectGrid" class="project-grid"></div>
-      <div class="section-tail"><span data-i18n="workTail">โครงการของสภานักเรียน</span><a href="#contact" data-i18n="suggestProject">เสนอไอเดียโครงการ ↗</a></div>
-    </section>
-
-    <section id="news" class="news-section">
-      <div class="section-wrap">
-        <div class="section-heading"><div><div class="section-kicker"><span>04 / UPDATES</span><span data-i18n="newsKicker">อัปเดตจากเรา</span></div><h2 data-i18n="newsTitle">ข่าวสารและ<br><span class="blue-text">เรื่องราวในโรงเรียน</span></h2></div><p data-i18n="newsIntro">ความเคลื่อนไหวล่าสุดจากสภานักเรียนและกิจกรรมที่ชวนทุกคนมามีส่วนร่วม</p></div>
-        <div id="newsGrid" class="news-grid"></div>
-      </div>
-    </section>
-
-    <section id="gallery" class="gallery-section section-wrap">
-      <div class="section-heading"><div><div class="section-kicker"><span>05 / MOMENTS</span><span data-i18n="galleryKicker">ภาพกิจกรรม</span></div><h2 data-i18n="galleryTitle">ช่วงเวลาที่เรา<br><span class="blue-text">สร้างไปด้วยกัน</span></h2></div><p data-i18n="galleryIntro">บันทึกภาพกิจกรรมและบรรยากาศการทำงานของสภานักเรียน</p></div>
-      <div id="galleryGrid" class="gallery-grid"></div>
-    </section>
-
-    <section id="contact" class="contact-section">
-      <div class="section-wrap contact-layout">
-        <div class="contact-copy"><div class="section-kicker"><span>06 / GET IN TOUCH</span><span data-i18n="contactKicker">ร่วมส่งเสียง</span></div><h2 data-i18n="contactTitle">มีไอเดียหรือ<br>อยากบอกอะไรกับเรา<span class="blue-text">ไหม?</span></h2><p data-i18n="contactText">ทุกความคิดเห็นช่วยให้เราเข้าใจสิ่งที่นักเรียนต้องการมากขึ้น ส่งข้อเสนอแนะหรือคำถามถึงทีมสภานักเรียนได้ที่นี่</p><div class="contact-aside"><span class="contact-aside-icon">↗</span><span data-i18n="contactAside">ข้อความของคุณจะถูกส่งถึงทีมสภานักเรียน</span></div></div>
-        <div class="contact-card"><span class="contact-card-mark">SC</span><div class="contact-card-copy"><span class="contact-card-label" data-i18n="contactCardLabel">OPEN CHANNEL · COMING SOON</span><h3 data-i18n="contactCardTitle">พื้นที่รับฟังความคิดเห็น</h3><p data-i18n="contactCardText">ช่องทางติดต่อของสภานักเรียนจะประกาศที่นี่เมื่อพร้อมให้บริการ</p></div><div class="contact-card-bottom"><span data-i18n="contactCardBottom">VOICE · IDEAS · ACTION</span><span>↗</span></div></div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <a class="brand footer-brand" href="#home"><span class="brand-mark"><span>SC</span><i></i></span><span class="brand-copy"><strong>SURAWITTAYAKARN</strong><small data-i18n="brandSub">STUDENT COUNCIL</small></span></a>
-    <p data-i18n="footerLine">รับฟังทุกเสียง สร้างโรงเรียนไปด้วยกัน</p>
-    <div class="footer-meta"><a href="#home">BACK TO TOP ↑</a><span data-i18n="footerSchool">โรงเรียนสุรวิทยาคาร · จังหวัดสุรินทร์</span><span>© <span id="year"></span> SURAWITTAYAKARN STUDENT COUNCIL</span></div>
-  </footer>
-
-  <dialog id="projectDialog" class="content-dialog" aria-labelledby="projectDialogTitle"><form method="dialog" class="content-dialog-close"><button aria-label="ปิด">×</button></form><div id="projectDetail" class="content-dialog-body"></div></dialog>
-
-  <script src="app.js"></script>
-</body>
+    <section class="home-highlights section-wrap" aria-label="ข้อมูลสำคัญ">
+      <div class="home-motto"><span class="identity-kicker"><span>SWK / SURIN</span><span data-i18n="schoolIdentityKicker">อัตลักษณ์โรงเรียน</span></span><h2 data-i18n="schoolIdentityTitle">ความประพฤตินำหน้า<br><span class="blue-text">วิชาตามหลัง</span></h2><a class="identity-school-link" data-i18n="schoolWebsite" href="https://sura.ac.th/" target="_blank" rel="noopener noreferrer">เว็บไซต์โรงเรียนสุรวิทยาคาร</a></div>
+      <div class="home-priorities"><span class="home-priority-label" data-i18n="homeFocus">STUDENT COUNCIL · OUR FOCUS</span><div><strong data-i18n="homeListen">รับฟังทุกเสียง</strong><small data-i18n="homeListenText">เปิดพื้นที่ให้นักเรียนมีส่วนร่วม</small></div><div><strong data-i18n="homeAct">ร่วมคิดและลงมือทำ</strong><small data-i18n="homeActText">พัฒนาโรงเรียนไปด้วยกัน</small></div><div><strong data-i18n="homeUpdates">สื่อสารอย่างโปร่งใส</strong><small data-i18n="homeUpdatesText">ติดตามข่าวและกิจกรรมได้ในเมนู</small></div></div>
+    </section>  </main>
+  <footer class="site-footer"><a class="brand footer-brand" href="index.html"><span class="brand-mark"><span>SC</span><i></i></span><span class="brand-copy"><strong>SURAWITTAYAKARN</strong><small data-i18n="brandSub">STUDENT COUNCIL · SURIN</small></span></a><p data-i18n="footerLine">รับฟังทุกเสียง สร้างโรงเรียนไปด้วยกัน</p><div class="footer-meta"><a href="index.html">กลับหน้าแรก ↑</a><span data-i18n="footerSchool">โรงเรียนสุรวิทยาคาร · จังหวัดสุรินทร์</span><span>© <span id="year"></span> SURAWITTAYAKARN STUDENT COUNCIL</span></div></footer>
+  <script src="app.js"></script></body>
 </html>
+

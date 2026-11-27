@@ -4,8 +4,10 @@
 
   const copy = {
     th: {
-      topline: "STUDENT VOICE · SHARED IDEAS · REAL ACTION", toplink: "ส่งเสียงของคุณ <span aria-hidden=\"true\">↗</span>", brandSub: "STUDENT COUNCIL · SURIN",
+      topline: "STUDENT VOICE · SHARED IDEAS · REAL ACTION", toplink: "ส่งเสียงของคุณ <span aria-hidden=\"true\">↗</span>", brandSub: "STUDENT COUNCIL · SURIN", menuLabel: "เมนูเว็บไซต์",
+      menuAbout: "รู้จักสภานักเรียน", menuTeam: "ทีมสภานักเรียน", menuActivities: "กิจกรรมและโครงการ", menuNews: "ข่าวสาร", menuGallery: "ภาพกิจกรรม", menuContact: "ติดต่อและส่งความคิดเห็น",
       navAbout: "รู้จักเรา", navTeam: "ทีมสภา", navWork: "โครงการ", navNews: "ข่าวสาร", navContact: "ติดต่อ",
+      homeMenuHint: "เลือกหัวข้อที่ต้องการได้จากปุ่ม “เมนูเว็บไซต์” ด้านบน", homeFocus: "STUDENT COUNCIL · OUR FOCUS", homeListen: "รับฟังทุกเสียง", homeListenText: "เปิดพื้นที่ให้นักเรียนมีส่วนร่วม", homeAct: "ร่วมคิดและลงมือทำ", homeActText: "พัฒนาโรงเรียนไปด้วยกัน", homeUpdates: "สื่อสารอย่างโปร่งใส", homeUpdatesText: "ติดตามข่าวและกิจกรรมได้ในเมนู",
       heroEyebrow: "สภานักเรียน · โรงเรียนสุรวิทยาคาร · สุรินทร์", heroTitle: "เสียงของเรา<br>สร้างโรงเรียนที่<span class=\"blue-text\">ดีกว่า</span>", heroLead: "พื้นที่ของนักเรียนสุรวิทยาคารทุกคน เพื่อรับฟังความคิด เชื่อมโยงผู้คน และเปลี่ยนข้อเสนอให้เป็นการลงมือทำที่จับต้องได้",
       exploreWork: "สำรวจโครงการ", learnMore: "รู้จักสภานักเรียน", heroFootnote: "รับฟังอย่างตั้งใจ · ทำงานอย่างโปร่งใส · เติบโตไปด้วยกัน", visualNoteOne: "ฟังเสียงนักเรียน", visualNoteTwo: "ลงมือเปลี่ยนแปลง",
       principleOne: "ฟังทุกเสียง", principleOneSub: "รับฟังด้วยความเข้าใจ", principleTwo: "คิดร่วมกัน", principleTwoSub: "เปิดพื้นที่ให้ทุกคนมีส่วนร่วม", principleThree: "ทำให้เกิดขึ้น", principleThreeSub: "สื่อสารความคืบหน้าอย่างโปร่งใส",
@@ -22,8 +24,10 @@
       noTeam: "ยังไม่มีข้อมูลคณะกรรมการที่เผยแพร่", noProjects: "ยังไม่มีโครงการที่เผยแพร่", noNews: "กำลังเตรียมข่าวสารจากสภานักเรียน", noGallery: "กำลังเตรียมภาพกิจกรรม", readMore: "อ่านรายละเอียด", projectCategory: "โครงการ", upcoming: "กำลังดำเนินการ", projectIdea: "แนวคิดโครงการ"
     },
     en: {
-      topline: "STUDENT VOICE · SHARED IDEAS · REAL ACTION", toplink: "Share your voice <span aria-hidden=\"true\">↗</span>", brandSub: "STUDENT COUNCIL · SURIN",
+      topline: "STUDENT VOICE · SHARED IDEAS · REAL ACTION", toplink: "Share your voice <span aria-hidden=\"true\">↗</span>", brandSub: "STUDENT COUNCIL · SURIN", menuLabel: "Explore website",
+      menuAbout: "About the council", menuTeam: "Student council team", menuActivities: "Activities & projects", menuNews: "News & updates", menuGallery: "Photo gallery", menuContact: "Contact & feedback",
       navAbout: "About", navTeam: "Our team", navWork: "Projects", navNews: "Updates", navContact: "Contact",
+      homeMenuHint: "Choose a section from the website menu above.", homeFocus: "STUDENT COUNCIL · OUR FOCUS", homeListen: "Listen to every voice", homeListenText: "Make room for students to take part", homeAct: "Think and act together", homeActText: "Help make school better", homeUpdates: "Communicate openly", homeUpdatesText: "Find news and activities in the menu",
       heroEyebrow: "Student Council · Surawittayakarn School · Surin", heroTitle: "Our voices<br>make school <span class=\"blue-text\">better</span>", heroLead: "A space for every Surawittayakarn student to share ideas, connect with one another, and turn thoughtful suggestions into action.",
       exploreWork: "Explore projects", learnMore: "Meet the student council", heroFootnote: "Listen with care · Work transparently · Grow together", visualNoteOne: "Listen to students", visualNoteTwo: "Make change happen",
       principleOne: "Listen to every voice", principleOneSub: "Lead with understanding", principleTwo: "Think together", principleTwoSub: "Make room for everyone", principleThree: "Take action", principleThreeSub: "Share progress openly",
@@ -120,6 +124,7 @@
     });
     const toggle = $("#languageToggle");
     if (toggle) toggle.textContent = language === "th" ? "EN" : "TH";
+    menuToggle?.setAttribute("aria-label",language === "th" ? "เปิดเมนูเว็บไซต์" : "Open website menu");
     renderCommittees();
     renderProjects();
     renderNews();
@@ -128,15 +133,22 @@
   }
 
   const menuToggle = $("#menuToggle");
+  const siteNav = $("#siteNav");
+  const closeMenu = () => {
+    if (!siteNav || !menuToggle) return;
+    siteNav.hidden = true;
+    menuToggle.setAttribute("aria-expanded","false");
+  };
   menuToggle?.addEventListener("click",() => {
-    const nav = $("#siteNav");
-    const isOpen = nav.classList.toggle("open");
+    const isOpen = siteNav?.hidden ?? true;
+    if (siteNav) siteNav.hidden = !isOpen;
     menuToggle.setAttribute("aria-expanded",String(isOpen));
   });
-  document.querySelectorAll("#siteNav a").forEach(link => link.addEventListener("click",() => {
-    $("#siteNav")?.classList.remove("open");
-    menuToggle?.setAttribute("aria-expanded","false");
-  }));
+  document.querySelectorAll("#siteNav a").forEach(link => link.addEventListener("click",closeMenu));
+  document.addEventListener("click",event => {
+    if (siteNav && !siteNav.hidden && !siteNav.contains(event.target) && !menuToggle?.contains(event.target)) closeMenu();
+  });
+  document.addEventListener("keydown",event => { if (event.key === "Escape") closeMenu(); });
   $("#languageToggle")?.addEventListener("click",() => {
     language = language === "th" ? "en" : "th";
     localStorage.setItem("sc-language",language);
@@ -145,4 +157,3 @@
   $("#year").textContent = String(new Date().getFullYear());
   applyLanguage();
 })();
-
